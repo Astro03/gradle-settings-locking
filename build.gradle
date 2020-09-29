@@ -1,0 +1,21 @@
+buildscript {
+  configurations.classpath {
+  	resolutionStrategy.activateDependencyLocking()
+  }
+}
+
+plugins {
+  id "com.dorongold.task-tree" version "1.5"
+}
+
+task resolveAndLockAll {
+    doFirst {
+        assert gradle.startParameter.writeDependencyLocks : "Invoking $path requires the --write-locks argument"
+    }
+    doLast {
+        configurations.findAll {
+            // Add any custom filtering on the configurations to be resolved
+            it.canBeResolved
+        }.each { it.resolve() }
+    }
+}
