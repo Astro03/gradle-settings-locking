@@ -1,10 +1,11 @@
 gradle-settings-locking
 =======================
 
-Toy project to illustrate that dependencies loaded into the settings scripthandler are missing from dependency lockfiles.
+Toy project to illustrate that dependencies loaded into the settings scripthandler can be missing from dependency lockfiles,
+or that the lockfile naming/locations are inconsistent.
 
 Note that a dynamically-versioned Gradle Enterprise is loaded in the settings scripthandler.
-It will be absent from the results below.
+It will be absent completely from Example One below.
 
 ## Example One: Default behavior
 Invoke:
